@@ -4,7 +4,7 @@ import datetime
 import sys
 
 # ----------- CONFIG ------------
-MODEL_NAME = "medium"      # or "base", "small", "medium", "large"
+MODEL_NAME = "medium"      # "tiny", "base", "small", "medium", "large"
 LANGUAGE = "kn"          # or None for auto-detect
 OUTPUT_DIR = Path("transcripts")
 OUTPUT_DIR.mkdir(exist_ok=True)
@@ -15,7 +15,7 @@ def transcribe_audio(audio_path: str):
     Transcribes the given audio file and saves the result in a text file.
     """
     # Load Whisper model
-    model = whisper.load_model(MODEL_NAME, device="cuda")
+    model = whisper.load_model(MODEL_NAME, device="cuda") # remove **device = "cuda"** if you do not have a dedicated GPU
 
     # Run transcription
     result = model.transcribe(audio_path, task = "translate", language=LANGUAGE)

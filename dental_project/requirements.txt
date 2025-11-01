@@ -6,3 +6,6 @@ scipy
 librosa
 soundfile
 tqdm
+
+# Download Zip of ffmpeg-git-full.7z
+# Add path to system PATH and place it at the top
